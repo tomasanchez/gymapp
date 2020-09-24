@@ -1,0 +1,75 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="tosa8.my_gym.controller.MasterClient"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<SplitContainer>
+		<masterPages>
+			<Page title="{i18n>title}" id="masterClients" class="sapUiStdPage">
+				<List id="clientList" growing="true" headerText="Clientes" items="{/ClientesSet}" sticky="ColumnHeaders" growingThreshold="10">
+					<headerToolbar>
+						<OverflowToolbar>
+							<Title text="Mis clientes" level="H2"/>
+						</OverflowToolbar>
+					</headerToolbar>
+					<infoToolbar>
+						<OverflowToolbar active="true">
+							<Label text="Estos son los cientes actualmente activos"/>
+						</OverflowToolbar>
+					</infoToolbar>
+					<StandardListItem type="Navigation" title="{Apellido}" description="{Nombre}" press="onPressClient"/>
+				</List>
+			</Page>
+		</masterPages>
+		<detailPages>
+			<Page id="detailsClients" title="Detalles" showHeader="true">
+				<customHeader>
+					<Bar>
+						<contentLeft>
+							<Button id="navButton" icon="sap-icon://decline" press="onNavClose"/>
+							<Label text="Detalles del cliente"/>
+						</contentLeft>
+						<contentRight>
+							<Button id="edit" text="Editar" press="handleEditPress"/>
+							<Button id="save" text="Guardar" type="Emphasized" visible="false" press="handleSavePress"/>
+							<Button id="cancel" text="Cancelar" visible="false" press="handleCancelPress"/>
+						</contentRight>
+					</Bar>
+				</customHeader>
+				<List id="newClientData" headerText="Detalles">
+					<InputListItem label="ID">
+						<Input id="clientID" placeholder="Nro. de DNI" value="{CLIENT>IdClte}" maxLength="10" required="true" editable="false"/>
+					</InputListItem>
+					<InputListItem label="{i18n>clientName}">
+						<Input id="clientName" placeholder="Nombre" value="{CLIENT>Nombre}" maxLength="15" editable="false"/>
+					</InputListItem>
+					<InputListItem label="{i18n>clientSurname}">
+						<Input id="clientLastName" placeholder="Apellido" value="{CLIENT>Apellido}" maxLength="15" editable="false"/>
+					</InputListItem>
+					<InputListItem label="{i18n>clientPost}">
+						<Input id="clientCP" value="{CLIENT>Post}" placeholder="Ej. 1778" editable="false"/>
+					</InputListItem>
+					<InputListItem label="{i18n>clientTel}">
+						<Input id="clientTel" value="{CLIENT>Telf}" type="Tel" placeholder="Ejemplo: 1176802076" maxLength="15" editable="false"/>
+					</InputListItem>
+					<InputListItem label="{i18n>clientStreet}">
+						<Input id="clientStreet" value="{CLIENT>Calle}" placeholder="Ej. Av. Belgrano 207" maxLength="15" editable="false"/>
+					</InputListItem>
+				</List>
+				<List headerText="Deportes Subscriptos" items="{oneClientSports>/}" id="csportsTable" noDataText="Sin deportes" delete="handleDelete"
+					enableBusyIndicator="true">
+					<items>
+						<StandardListItem title="{oneClientSports>IdDep}" description="Dias: {oneClientSports>Horarios}"/>
+					</items>
+				</List>
+				<List >
+					<items alignItems="Center">
+						<ActionListItem text="Subscribir a deporte" press="onAddSport"/>
+						<CustomListItem >
+							<FlexBox displayInline="true" alignItems="Center" justifyContent="Center" fitContainer="true">
+								<Button type="Reject" text="Eliminar Cliente" press="onDeleteClient" ariaDescribedBy="Eliminar" class="sapUiSmallMarginBottom"/>
+							</FlexBox>
+						</CustomListItem>
+					</items>
+				</List>
+			</Page>
+		</detailPages>
+	</SplitContainer>
+</mvc:View>

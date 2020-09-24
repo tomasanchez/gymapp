@@ -1,0 +1,177 @@
+{
+	"_version": "1.12.0",
+	"sap.app": {
+		"id": "tosa8.my_gym",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "servicecatalog.connectivityComponentForManifest",
+			"version": "0.0.0"
+		},
+		"dataSources": {
+			"ZOS_CA_TOSA8_ACADEMIA_SRV": {
+				"uri": "/sap/opu/odata/sap/ZOS_CA_TOSA8_ACADEMIA_SRV/",
+				"type": "OData",
+				"settings": {
+					"localUri": "localService/metadata.xml"
+				}
+			}
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"flexEnabled": false,
+		"rootView": {
+			"viewName": "tosa8.my_gym.view.App",
+			"type": "XML",
+			"async": true,
+			"id": "app"
+		},
+		"dependencies": {
+			"minUI5Version": "1.65.6",
+			"libs": {
+				"sap.ui.layout": {},
+				"sap.ui.core": {},
+				"sap.m": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "tosa8.my_gym.i18n.i18n"
+				}
+			},
+			"": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "OneWay",
+					"defaultCountMode": "Request"
+				},
+				"dataSource": "ZOS_CA_TOSA8_ACADEMIA_SRV",
+				"preload": true
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "tosa8.my_gym.view",
+				"controlAggregation": "pages",
+				"controlId": "app",
+				"clearControlAggregation": false,
+				"bypassed": {
+					"target": "notFound"
+				}
+			},
+			"routes": [
+				{
+					"name": "appHome",
+					"pattern": "",
+					"target": [
+						"TargetHome"
+					]
+				},
+				{
+					"pattern": "clients",
+					"name": "clientsList",
+					"target": "Clientes"
+				},
+				{
+					"pattern": "clients/{IdClte}",
+					"name": "client",
+					"target": "MasterClient"
+				},
+				{
+					"pattern": "newclient",
+					"name": "addClient",
+					"target": "NewClient"
+				},
+				{
+					"pattern": "sports",
+					"name": "sportsList",
+					"target": "SportsList"
+				},
+				{
+					"pattern": "client/{IdClte}/newsport",
+					"name": "newSport",
+					"target": "NewSport"
+				}
+			],
+			"targets": {
+				"TargetHome": {
+					"viewId": "Home",
+					"viewName": "Home",
+					"viewLevel": 1
+				},
+				"notFound": {
+					"viewType": "XML",
+					"viewName": "notFound",
+					"transition": "show"
+				},
+				"Clientes": {
+					"viewType": "XML",
+					"viewName": "Clientes",
+					"viewLevel": 2
+				},
+				"MasterClient": {
+					"viewType": "XML",
+					"viewName": "MasterClient",
+					"viewLevel": 3
+				},
+				"NewClient": {
+					"viewType": "XML",
+					"viewName": "NewClient",
+					"viewLevel": 3
+				},
+				"SportsList": {
+					"viewType": "XML",
+					"viewName": "SportsList",
+					"viewLevel": 2
+				},
+				"NewSport": {
+					"viewType": "XML",
+					"viewName": "NewSport",
+					"viewLevel": 4
+				}
+			}
+		}
+	},
+	"sap.platform.hcp": {
+		"uri": "webapp",
+		"_version": "1.1.0"
+	}
+}

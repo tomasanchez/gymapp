@@ -1,0 +1,26 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="tosa8.my_gym.controller.Clientes"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page
+		id="clientListPage"
+		title="{i18n>ClientList}"
+		showNavButton="true"
+		navButtonPress=".onNavBack"
+		class="sapUiResponsiveContentPadding">
+		<content>
+		<List id="clientList" headerText="{i118n>ListOfAllClients}" items="{/ClientesSet}" growing="true" growingThreshold="10" noDataText="{i18n>NoClients}">
+					<headerToolbar>
+						<OverflowToolbar>
+							<Title text="Mis clientes" level="H2"/>
+							<Button id="addClient" icon="sap-icon://add" press="onAddClient" />
+						</OverflowToolbar>
+					</headerToolbar>
+					<infoToolbar>
+						<OverflowToolbar active="true">
+							<Label text="Clientes Activos"/>
+						</OverflowToolbar>
+					</infoToolbar>
+					<StandardListItem type="Navigation" title="{Apellido}" description="{Nombre}" press="onListItemPressed"/>
+				</List>
+		</content>
+	</Page>
+</mvc:View>

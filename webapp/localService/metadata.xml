@@ -1,0 +1,25 @@
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema Namespace="ZOS_CA_TOSA8_ACADEMIA_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+			<EntityType Name="Clientes" sap:content-version="1">
+				<Key><PropertyRef Name="IdClte"/></Key><Property Name="IdClte" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false"/><Property Name="Nombre" Type="Edm.String" MaxLength="35" sap:unicode="false" sap:label="Name"/><Property Name="Apellido" Type="Edm.String" MaxLength="35" sap:unicode="false" sap:label="Name 2"/><Property Name="Post" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Postal Code" sap:sortable="false"
+					sap:filterable="false"/><Property Name="Calle" Type="Edm.String" MaxLength="35" sap:unicode="false" sap:label="Street" sap:sortable="false" sap:filterable="false"/><Property Name="Telf" Type="Edm.String" MaxLength="16" sap:unicode="false" sap:label="Telephone" sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="nDeportes" Relationship="ZOS_CA_TOSA8_ACADEMIA_SRV.Clientes_Deportes" FromRole="FromRole_Clientes_Deportes"
+					ToRole="ToRole_Clientes_Deportes"/></EntityType>
+			<EntityType Name="Deportes" sap:content-version="1">
+				<Key><PropertyRef Name="IdClte"/><PropertyRef Name="IdDep"/></Key><Property Name="IdClte" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false"/><Property Name="IdDep" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false"/><Property Name="Costo" Type="Edm.Decimal" Precision="14" Scale="3" sap:unicode="false" sap:label="Amount"/><Property Name="Horarios" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="Profe" Type="Edm.String" MaxLength="35" sap:unicode="false" sap:label="Name" sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="nClientes" Relationship="ZOS_CA_TOSA8_ACADEMIA_SRV.Clientes_Deportes" FromRole="ToRole_Clientes_Deportes"
+					ToRole="FromRole_Clientes_Deportes"/></EntityType>
+			<Association Name="Clientes_Deportes" sap:content-version="1"><End Type="ZOS_CA_TOSA8_ACADEMIA_SRV.Clientes" Multiplicity="1" Role="FromRole_Clientes_Deportes"/><End Type="ZOS_CA_TOSA8_ACADEMIA_SRV.Deportes" Multiplicity="*" Role="ToRole_Clientes_Deportes"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_Clientes_Deportes"><PropertyRef Name="IdClte"/></Principal>
+					<Dependent Role="ToRole_Clientes_Deportes"><PropertyRef Name="IdClte"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<EntityContainer Name="ZOS_CA_TOSA8_ACADEMIA_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="ClientesSet" EntityType="ZOS_CA_TOSA8_ACADEMIA_SRV.Clientes" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="DeportesSet" EntityType="ZOS_CA_TOSA8_ACADEMIA_SRV.Deportes" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+				<AssociationSet Name="Clientes_DeportesSet" Association="ZOS_CA_TOSA8_ACADEMIA_SRV.Clientes_Deportes" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="ClientesSet" Role="FromRole_Clientes_Deportes"/><End EntitySet="DeportesSet" Role="ToRole_Clientes_Deportes"/></AssociationSet>
+			</EntityContainer><atom:link rel="self" href="./sap/ZOS_CA_TOSA8_ACADEMIA_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/><atom:link rel="latest-version" href="./sap/ZOS_CA_TOSA8_ACADEMIA_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

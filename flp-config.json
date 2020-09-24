@@ -1,0 +1,36 @@
+{
+    "application": {
+        "id": "",
+        "title": "Mi Gimnasio",
+        "description": "Academia",
+        "type": "SAP_UI5_Component",
+        "componentUrl": "/",
+        "appUrl": "#my_gym-Display",
+        "navigationComponentName": "tosa8.my_gym",
+        "intentSemanticObject": "my_gym",
+        "intentAction": "Display",
+        "html5ApplicationName": "mygym",
+        "HCPParentApplicationName": ""
+    },
+    "assignment": {
+        "groups": [
+            "6b31c846-de71-46af-b8e5-e1133b2141da-1600882382635"
+        ],
+        "contentPackages": [
+            "1bdc904d-f028-4722-ad37-562e18e982ea"
+        ],
+        "categories": []
+    },
+    "tile": {
+        "type": "DynamicTile",
+        "title": "My",
+        "subtitle": "Gym",
+        "searchKeywords": "My,Gym",
+        "displayIconUrl": "sap-icon://soccor",
+        "displayInfoText": "",
+        "size": "1x1",
+        "serviceURL": "/sap/fiori/mygym/sap/opu/odata/sap/ZOS_CA_TOSA8_ACADEMIA_SRV/ClientesSet/$count",
+        "refreshInterval": 10,
+        "displayNumberUnit": "Clientes"
+    }
+}
