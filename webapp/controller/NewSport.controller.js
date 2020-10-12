@@ -80,12 +80,11 @@ sap.ui.define([
 			var oNewSport = oController._createSport();
 
 			if (!bValidationError) {
-				MessageToast.show("Se han validado los campos.");
 					oController.getView().setBusy(true);
 				oController._fetchDOMValues(oNewSport);
 				oController._sportCreate(oNewSport);
 			} else {
-				MessageBox.alert("Hubo un error. Verifique los campos.");
+				MessageBox.alert("Oops! An error has occurred, verify fields.");
 			}
 
 			//var oSport = oController._fetchDOMValues();
@@ -106,12 +105,12 @@ sap.ui.define([
 
 			oModel.create("/DeportesSet", oSport, {
 				success: function (resultado) {
-					MessageToast.show("Cliente subscripto a deporte");
+					MessageToast.show("Succes: New subscription");
 					this.getView().setBusy(false);
 
 				}.bind(this),
 				error: function (error) {
-					MessageToast.show("Ya se encuentra subscripto!");
+					MessageToast.show("Error: Client is already subscripted");
 					this.getView().setBusy(false);
 				}
 			});

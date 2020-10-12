@@ -1,54 +1,54 @@
 <mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="tosa8.my_gym.controller.NewSport"
 	xmlns:html="http://www.w3.org/1999/xhtml">
-<Page id="newSport" title="Nueva Subscripcion" showHeader="true">
+<Page id="newSport" title="Subscription" showHeader="true">
 		<customHeader>
 			<Bar>
 				<contentLeft>
 					<Button id="navButton" icon="sap-icon://decline" press="onNavBack"/>
 				</contentLeft>
 				<contentRight>
-					<Label text="Nueva Subscripcion"/>
+					<Label text="New Subscription"/>
 				</contentRight>
 			</Bar>
 		</customHeader>
-		<List id="newClientData" headerText="Deporte">
-			<InputListItem label="Nro de Cliente a subscribirse">
-				<Input id="clientID" placeholder="Nro. de cliente" maxLength="10" value="{view>ID}" required="true" type="Number"
+		<List id="newClientData" headerText="Sport">
+			<InputListItem label="Client ID">
+				<Input id="clientID" placeholder="ID" maxLength="10" value="{view>ID}" required="true" type="Number"
 					valueStateText="{i18n>idValidate}" change="onValueChange"/>
 			</InputListItem>
 			<InputListItem label="{i18n>sportTeacher}">
-				<Input id="sTeacher" placeholder="Nombre Profesor" maxLength="15" valueStateText="{i18n>nameValidate}" change="onValueChange"/>
+				<Input id="sTeacher" placeholder="Name" maxLength="15" valueStateText="{i18n>nameValidate}" change="onValueChange"/>
 			</InputListItem>
 			<InputListItem label="{i18n>sportTime}">
 				<Select id="sTime" forceSelection="true">
-				<core:Item key="LYM" text="Lunes y Miercoles" />
-				<core:Item key="MYJ" text="Martes y Jueves" />
-				<core:Item key="MYV" text="Miercoles y Viernes" />
-				<core:Item key="SAB" text="Sabados" />
-				<core:Item key="LIB" text="Libre (GYM)" />
+				<core:Item key="LYM" text="Mondays and Wednesdays" />
+				<core:Item key="MYJ" text="Tuesdays and Thursdays" />
+				<core:Item key="MYV" text="Wednesdays and Fridays" />
+				<core:Item key="SAB" text="Saturdays" />
+				<core:Item key="LIB" text="Unlimited (GYM)" />
 			</Select>
 			</InputListItem>
 			<InputListItem label="{i18n>sportId}">
 			<Select id="sID" forceSelection="true">
-				<core:Item key="FUTBOL" text="Futbol" />
-				<core:Item key="TENIS" text="Tenis" />
+				<core:Item key="FUTBOL" text="Soccer" />
+				<core:Item key="TENIS" text="Tennis" />
 				<core:Item key="BASKET" text="Basket" />
 				<core:Item key="HOCKEY" text="Hockey" />
-				<core:Item key="NATACION" text="Natacion" />
-				<core:Item key="GYM-1" text="Gym (2 dias)" />
-				<core:Item key="GYM-2" text="Gym (3 dias)" />
-				<core:Item key="GYM-LIB" text="Gym (Libre)" />
+				<core:Item key="NATACION" text="Swimming" />
+				<core:Item key="GYM-1" text="Gym (2 days)" />
+				<core:Item key="GYM-2" text="Gym (3 days)" />
+				<core:Item key="GYM-LIB" text="Gym (Unlimited)" />
 			</Select>
 			</InputListItem>
 			<InputListItem label="{i18n>sportCost}">
-				<Input id="sCost" type="Number" valueStateText="Debe ingresar un monto." placeholder="Ej. 300" change="onValueChange"/>
+				<Input id="sCost" type="Number" valueStateText="A number must be entered." placeholder="Ex. 300" change="onValueChange"/>
 			</InputListItem>
 
 		</List>
 	
 		<List>
-			<ActionListItem text="Crear" press="onCreateSport"/>
-			<ActionListItem text="Cancelar" press="onNavBack"/>
+			<ActionListItem text="Subscribe" press="onCreateSport"/>
+			<ActionListItem text="Cancel" press="onNavBack"/>
 		</List>
 	</Page>
 </mvc:View>

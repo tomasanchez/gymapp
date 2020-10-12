@@ -4,11 +4,11 @@
 			<List>
 				<items>
 					<ActionListItem text="{i18n>ShowClientList}" press="onNavToClients"/>
-					<ActionListItem text="Deportes" press="onNavToSports"/>
-					<ActionListItem text="Nuevo cliente" press="onNavToNewClient"/>
-					<ActionListItem text="Mantenimiento" press="onDisplayNotFound"/>
-					<ActionListItem text="Heladera" press="onDisplayNotFound"/>
-					<ActionListItem text="Cuotas" press="onDisplayNotFound"/>
+					<ActionListItem text="Sports" press="onNavToSports"/>
+					<ActionListItem text="New Client" press="onNavToNewClient"/>
+					<ActionListItem text="Maintenance" press="onDisplayNotFound"/>
+					<ActionListItem text="Fridge" press="onDisplayNotFound"/>
+					<ActionListItem text="Payments" press="onDisplayNotFound"/>
 				</items>
 			</List>
 		</content>

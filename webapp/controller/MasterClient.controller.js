@@ -119,8 +119,8 @@ sap.ui.define([
 		},
 		
 		onDeleteClient : function(oEvent){
-				MessageBox.confirm("Esta seguro de eliminar Cliente?", {
-				title: "Eliminar Cliente",
+				MessageBox.confirm("Are you sure?", {
+				title: "Delete Client",
 				styleClass: "", // default
 				actions: [MessageBox.Action.OK,
 					sap.m.MessageBox.Action.CANCEL
@@ -140,7 +140,7 @@ sap.ui.define([
 			var oModelSports = oController.byId("csportsTable").getModel("oneClientSports");
 			var oSports = oModelSports.getData();
 			if(oSports.length > 0){
-				MessageBox.error("El cliente posee \"Deportes subscriptos\".\nPrimero elimine todos los deportes.");
+				MessageBox.error("Client has\"Subscriptions\".\nMake sure first cancel all subscriptions.");
 			}else{
 				oController._deleteClient();
 			}
@@ -158,12 +158,12 @@ sap.ui.define([
 		
 			oModel.remove(sPath, {
 				success: function (resultado) {
-					MessageToast.show("Cliente Eliminado");
+					MessageToast.show("Success! Client deleted");
 					this.getView().setBusy(false);
 					oController.onNavBack();
 				}.bind(this),
 				error: function (error) {
-					MessageToast.show("Algo salio mal!");
+					MessageToast.show("Error: something went wrong");
 					oController.getView().setBusy(false);
 				}
 			});
@@ -176,8 +176,8 @@ sap.ui.define([
 				oIndex = oList._oItemNavigation.iFocusedIndex, // Index of item selected
 				oSport= oArray[oIndex]; // Sport fetched 
 			
-			MessageBox.confirm("Esta seguro de eliminar deporte?", {
-				title: "Eliminar Deporte",
+			MessageBox.confirm("Are you sure?", {
+				title: "Cancel Subscription",
 				styleClass: "", // default
 				actions: [MessageBox.Action.OK,
 					sap.m.MessageBox.Action.CANCEL
@@ -213,12 +213,12 @@ sap.ui.define([
 			
 			oModelDefault.remove(sPath, {
 				success: function (resultado) {
-					MessageToast.show("Deporte eliminado");
+					MessageToast.show("Succes! Subscription canceled.");
 					this.getView().setBusy(false);
 					oController.getClientSports(clientPath);
 				}.bind(this),
 				error: function (error) {
-					MessageToast.show("Algo salio mal!");
+					MessageToast.show("Error: something went wrong.");
 					oController.getView().setBusy(false);
 				}
 			});
@@ -273,10 +273,10 @@ sap.ui.define([
 			oModelDefault.update(sPath, oEntity, {
 				success: function (resultado) {
 					oController.getView().setBusy(false);
-					MessageToast.show("Cliente Actualizado");
+					MessageToast.show("Success! Client Updated");
 				}.bind(this),
 				error: function (error) {
-					MessageToast.show("Error");
+					MessageToast.show("Error: something went wrong");
 					oController.getView().setBusy(false);
 				}
 			});
@@ -341,7 +341,7 @@ sap.ui.define([
 					this.loadClientSport(result);
 				}.bind(this),
 				error: function (error) {
-					MessageToast.show("Error");
+					MessageToast.show("Error: something went wrong.");
 				}
 			});
 		},

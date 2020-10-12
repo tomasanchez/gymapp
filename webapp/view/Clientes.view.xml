@@ -7,16 +7,16 @@
 		navButtonPress=".onNavBack"
 		class="sapUiResponsiveContentPadding">
 		<content>
-		<List id="clientList" headerText="{i118n>ListOfAllClients}" items="{/ClientesSet}" growing="true" growingThreshold="10" noDataText="{i18n>NoClients}">
+		<List id="clientList" headerText="{i118n>ListOfAllClients}" items="{/ClientesSet}" growing="true" growingThreshold="10" noDataText="{i18n>NoClients}" sticky="HeaderToolbar,InfoToolbar">
 					<headerToolbar>
 						<OverflowToolbar>
-							<Title text="Mis clientes" level="H2"/>
+							<Title text="My Clients" level="H2"/>
 							<Button id="addClient" icon="sap-icon://add" press="onAddClient" />
 						</OverflowToolbar>
 					</headerToolbar>
 					<infoToolbar>
 						<OverflowToolbar active="true">
-							<Label text="Clientes Activos"/>
+							<Label text="Active Clients"/>
 						</OverflowToolbar>
 					</infoToolbar>
 					<StandardListItem type="Navigation" title="{Apellido}" description="{Nombre}" press="onListItemPressed"/>

@@ -37,25 +37,24 @@ sap.ui.define([
 			}, oController);
 
 			if (!bValidationError) {
-				MessageToast.show("Se han validado los campos.");
 				oController.getView().setBusy(true);
 				oController._getNewClientData(oEntity);
 
 				oModel.create("/ClientesSet", oEntity, {
 					success: function (resultado) {
-						MessageToast.show("Nuevo cliente creado");
+						MessageToast.show("Success: New Client Created");
 						this.getView().setBusy(false);
 
 					}.bind(this),
 					error: function (error) {
-						MessageToast.show("El DNI ya se encuentra registrado");
+						MessageToast.show("Error: ID is already registered");
 						oController.getView().setBusy(false);
 					}
 				});
 
 				oController._cleanDOMValues();
 			} else {
-				MessageBox.alert("Hubo un error. Verifique los campos.");
+				MessageBox.alert("Oops! An error has occurred, verify fields.");
 			}
 
 		},

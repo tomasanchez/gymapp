@@ -1,40 +1,40 @@
 <mvc:View controllerName="tosa8.my_gym.controller.NewClient" xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout"
 	xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns="sap.m">
-	<Page id="detailsClients" title="Detalles" showHeader="true">
+	<Page id="detailsClients" title="Details" showHeader="true">
 		<customHeader>
 			<Bar>
 				<contentLeft>
 					<Button id="navButton" icon="sap-icon://decline" press="onNavBack"/>
 				</contentLeft>
 				<contentRight>
-					<Label text="Agregar Cliente"/>
+					<Label text="Add Client"/>
 				</contentRight>
 			</Bar>
 		</customHeader>
-	<List id="newClientData" headerText="Nuevo Cliente">
-			<InputListItem label="Nro. DNI">
-				<Input id="clientID" placeholder="Nro. de DNI" maxLength="10" required="true" type="Number" 
+	<List id="newClientData" headerText="New Client">
+			<InputListItem label="ID">
+				<Input id="clientID" placeholder="ID number" maxLength="10" required="true" type="Number" 
 					valueStateText="{i18n>idValidate}" change=".onValueChange"/>
 			</InputListItem>
 			<InputListItem label="{i18n>clientName}">
-				<Input id="clientName" placeholder="Nombre" maxLength="15" valueStateText="{i18n>nameValidate}" change=".onValueChange"/>
+				<Input id="clientName" placeholder="Name" maxLength="15" valueStateText="{i18n>nameValidate}" change=".onValueChange"/>
 			</InputListItem>
 			<InputListItem label="{i18n>clientSurname}">
-				<Input id="clientLastName" placeholder="Apellido" maxLength="15" valueStateText="{i18n>surNameValidate}" change=".onValueChange"/>
+				<Input id="clientLastName" placeholder="Last Name" maxLength="15" valueStateText="{i18n>surNameValidate}" change=".onValueChange"/>
 			</InputListItem> 
 			<InputListItem label="{i18n>clientPost}">
-				<Input id="clientCP" type="Number" placeholder="Ej. 1567" maxLength="5" valueStateText="{i18n>cpValidate}" change=".onValueChange"/>
+				<Input id="clientCP" type="Number" placeholder="ZIP code" maxLength="5" valueStateText="{i18n>cpValidate}" change=".onValueChange"/>
 			</InputListItem> 
 			<InputListItem label="{i18n>clientTel}">
-				<Input id="clientTel" type="Tel" placeholder="Ej. 1176802076" maxLength="10" valueStateText="{i18n>telValidate}" change=".onValueChange"/>
+				<Input id="clientTel" type="Tel" placeholder="Ex. 1176802076" maxLength="10" valueStateText="{i18n>telValidate}" change=".onValueChange"/>
 			</InputListItem>
 			<InputListItem label="{i18n>clientStreet}">
-				<Input id="clientStreet" placeholder="Ej. Av. Belgrano 207" maxLength="15" valueStateText="{i18n>streetValidate}" change=".onValueChange"/>
+				<Input id="clientStreet" placeholder="Ex. Belgrano Street 207" maxLength="15" valueStateText="{i18n>streetValidate}" change=".onValueChange"/>
 			</InputListItem>
 		</List>
 		<List>
-			<ActionListItem text="Crear" press="onCreateClient"/>
-			<ActionListItem text="Cancelar" press="onCancel"/>
+			<ActionListItem text="Add" press="onCreateClient"/>
+			<ActionListItem text="Cancel" press="onCancel"/>
 		</List>
 	</Page>
 </mvc:View>
